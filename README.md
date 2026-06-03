@@ -17,7 +17,8 @@ fvm flutter run --flavor stg --dart-define-from-file=env/stg.json -t lib/main_st
 - [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) — cómo adaptar el template para un proyecto nuevo.
 - [`docs/BACKEND_CONVENTIONS.md`](docs/BACKEND_CONVENTIONS.md) — camelCase vs snake_case.
 - [`CLAUDE.md`](CLAUDE.md) — stack fijado + reglas transversales.
-- [`.claude/rules/arquitectura-explicada.md`](.claude/rules/arquitectura-explicada.md) — Clean Architecture aplicada con Riverpod 3.
+- [`AGENTS.md`](AGENTS.md) — convenciones cross-IDE (commits) + índice de reglas.
+- [`.claude/rules/architecture.md`](.claude/rules/architecture.md) — **fuente de verdad** de la arquitectura (Clean + Riverpod 3). El resto de las reglas viven junto a este archivo en `.claude/rules/`.
 - [`CHANGELOG.md`](CHANGELOG.md) — historial de cambios del template.
 
 ## Usar como template
@@ -30,7 +31,7 @@ Este repo está marcado como **Template repository** en GitHub. Dos formas de cr
 
 **B) Con `gh` CLI**:
 ```bash
-gh repo create mi-proyecto --template lmena-kubo/clean_riverpod_starter --private --clone
+gh repo create mi-proyecto --template Kubo-SAS/clean_riverpod_starter --private --clone
 cd mi-proyecto
 ```
 
@@ -88,7 +89,7 @@ Cada release debe actualizar [`CHANGELOG.md`](CHANGELOG.md) bajo una nueva secci
 Desde un proyecto ya creado con el template:
 
 ```bash
-git remote add template git@github.com:lmena-kubo/clean_riverpod_starter.git
+git remote add template git@github.com:Kubo-SAS/clean_riverpod_starter.git
 git fetch template
 git log template/main --oneline         # ves qué cambió
 git cherry-pick <sha>                    # traés commits puntuales
