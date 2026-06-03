@@ -36,6 +36,44 @@ Convenciones detalladas en `.claude/rules/`. Leer **antes** de escribir código 
 - Flavors: STG / PROD vía `--dart-define-from-file`.
 - Calidad local: `lefthook` (hooks de git locales). Tras clonar: `lefthook install` (una vez).
 
+## Comandos comunes
+
+El proyecto usa **FVM** — la versión de Flutter está pinneada en `.fvmrc`. Si no usás FVM, reemplazá `fvm flutter` por `flutter`.
+
+### Correr la app (flavors obligatorios)
+
+```bash
+# STG
+fvm flutter run --flavor stg --dart-define-from-file=env/stg.json -t lib/main_stg.dart
+
+# PROD
+fvm flutter run --flavor prod --dart-define-from-file=env/prod.json -t lib/main_prod.dart
+```
+
+Desde VSCode: `F5` → **App STG (debug)** / **App PROD (debug)**.
+
+### Code-gen (Riverpod / freezed / json_serializable)
+
+```bash
+fvm dart run build_runner build --delete-conflicting-outputs
+fvm dart run build_runner watch --delete-conflicting-outputs
+```
+
+### Lint / analyze / test
+
+```bash
+fvm flutter analyze
+fvm flutter test
+```
+
+### Hooks de calidad local (una vez tras clonar)
+
+```bash
+lefthook install
+```
+
+`lefthook.yml` corre `dart format` + `flutter analyze` en pre-commit y `flutter test` en pre-push.
+
 ## Convención del backend: camelCase vs snake_case
 
 El `build.yaml` trae `field_rename: snake` **comentado** por default (asume camelCase en el wire). Si tu backend responde snake_case, descomentá esa línea. Detalle completo en [`docs/BACKEND_CONVENTIONS.md`](docs/BACKEND_CONVENTIONS.md).

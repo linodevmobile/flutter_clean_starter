@@ -106,7 +106,7 @@ La feature `auth` está completa y funciona contra un backend REST que exponga:
 
 Adaptala al contrato real de tu backend. Si el shape es distinto, editá:
 - `lib/features/auth/infrastructure/models/*_dto.dart` (fields del DTO).
-- `lib/features/auth/infrastructure/datasources/auth_datasource_impl.dart` (mapper DTO → Entity).
+- `lib/features/auth/infrastructure/mappers/auth_mapper.dart` (traducción DTO → Entity).
 
 Para features nuevas (`users`, `products`, etc.), copiá la estructura de `auth/` y adaptá.
 
