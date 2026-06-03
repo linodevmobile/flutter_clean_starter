@@ -10,7 +10,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'dio_client.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Dio dio(Ref ref) {
   final storage = ref.watch(secureStorageProvider);
 

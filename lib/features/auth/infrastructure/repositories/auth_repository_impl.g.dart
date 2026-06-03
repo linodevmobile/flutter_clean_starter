@@ -13,16 +13,15 @@ part of 'auth_repository_impl.dart';
 final authRepositoryProvider = AuthRepositoryProvider._();
 
 final class AuthRepositoryProvider
-    extends
-        $FunctionalProvider<IAuthRepository, IAuthRepository, IAuthRepository>
-    with $Provider<IAuthRepository> {
+    extends $FunctionalProvider<AuthRepository, AuthRepository, AuthRepository>
+    with $Provider<AuthRepository> {
   AuthRepositoryProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
         name: r'authRepositoryProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -32,21 +31,21 @@ final class AuthRepositoryProvider
 
   @$internal
   @override
-  $ProviderElement<IAuthRepository> $createElement($ProviderPointer pointer) =>
+  $ProviderElement<AuthRepository> $createElement($ProviderPointer pointer) =>
       $ProviderElement(pointer);
 
   @override
-  IAuthRepository create(Ref ref) {
+  AuthRepository create(Ref ref) {
     return authRepository(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(IAuthRepository value) {
+  Override overrideWithValue(AuthRepository value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<IAuthRepository>(value),
+      providerOverride: $SyncValueProvider<AuthRepository>(value),
     );
   }
 }
 
-String _$authRepositoryHash() => r'7ab5b59d9b48fe7186dbf0d1a3f0c3825d593d62';
+String _$authRepositoryHash() => r'8938b40a8fafe0643a90de3d3cf1972ff4981673';

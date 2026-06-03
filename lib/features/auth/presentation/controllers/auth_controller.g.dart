@@ -21,7 +21,7 @@ final class LoginUseCaseProvider
         argument: null,
         retry: null,
         name: r'loginUseCaseProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -48,7 +48,7 @@ final class LoginUseCaseProvider
   }
 }
 
-String _$loginUseCaseHash() => r'5a95b111ff086652f0c947b88bcfe26ea7ce95be';
+String _$loginUseCaseHash() => r'bcc2cdeb08093adb78a3236bb15942d10463c664';
 
 @ProviderFor(AuthController)
 final authControllerProvider = AuthControllerProvider._();

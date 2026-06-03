@@ -18,6 +18,6 @@ class SecureStorageService {
   Future<void> clearAccessToken() => _storage.delete(key: _kAccessToken);
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 SecureStorageService secureStorage(Ref ref) =>
     const SecureStorageService(FlutterSecureStorage());

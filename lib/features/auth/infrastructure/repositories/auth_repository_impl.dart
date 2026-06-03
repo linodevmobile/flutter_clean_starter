@@ -8,14 +8,14 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository_impl.g.dart';
 
-class AuthRepositoryImpl implements IAuthRepository {
+class AuthRepositoryImpl implements AuthRepository {
   const AuthRepositoryImpl({
-    required IAuthDatasource datasource,
+    required AuthDatasource datasource,
     required SecureStorageService storage,
   })  : _datasource = datasource,
         _storage = storage;
 
-  final IAuthDatasource _datasource;
+  final AuthDatasource _datasource;
   final SecureStorageService _storage;
 
   @override
@@ -52,8 +52,8 @@ class AuthRepositoryImpl implements IAuthRepository {
   }
 }
 
-@riverpod
-IAuthRepository authRepository(Ref ref) => AuthRepositoryImpl(
+@Riverpod(keepAlive: true)
+AuthRepository authRepository(Ref ref) => AuthRepositoryImpl(
       datasource: ref.watch(authDatasourceProvider),
       storage: ref.watch(secureStorageProvider),
     );

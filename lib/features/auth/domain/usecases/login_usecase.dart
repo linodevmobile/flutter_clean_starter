@@ -4,7 +4,7 @@ import 'package:clean_riverpod_starter/features/auth/domain/repositories/auth_re
 class LoginUseCase {
   const LoginUseCase(this._repository);
 
-  final IAuthRepository _repository;
+  final AuthRepository _repository;
 
   Future<AuthSession> call({
     required String email,

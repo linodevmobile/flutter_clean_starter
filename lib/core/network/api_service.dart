@@ -40,5 +40,5 @@ class ApiService {
   }
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 ApiService apiService(Ref ref) => ApiService(ref.watch(dioProvider));

@@ -7,10 +7,11 @@ Las entities NO validan. Prohibido:
 - Cualquier método de validación dentro de una Entity
 
 ## Estructura
-- Validaciones genéricas:  lib/app/shared/validations/core_validation_service.dart
+- Validaciones genéricas:  lib/core/validations/core_validation_service.dart
 - Validaciones por módulo: lib/features/[x]/domain/validation/[x]_validation_service.dart
 
 ## Patrón
+```dart
 class CoreValidationService {
   static String? validateEmail(String? value) { ... }
   static String? validateRequired(String? value) { ... }
@@ -19,6 +20,7 @@ class CoreValidationService {
 class UserValidationService {
   static String? validateUsername(String? value) { ... }
 }
+```
 
 ## Cuándo usar cada uno
 - CoreValidationService: validaciones reutilizables (email, teléfono, campos requeridos)
@@ -26,4 +28,6 @@ class UserValidationService {
 
 ## En formularios Flutter
 Referenciar el servicio desde la View, no inline en el widget:
-  validator: (v) => UserValidationService.validateUsername(v)
+```dart
+validator: (v) => UserValidationService.validateUsername(v)
+```

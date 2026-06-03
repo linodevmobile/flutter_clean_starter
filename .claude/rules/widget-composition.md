@@ -39,5 +39,5 @@ Text("${price.toStringAsFixed(2)}")
 - Mucha lógica condicional → no es un UIWidget puro
 
 ## Formatters
-Ubicación: lib/app/shared/utils/[domain]_formatters/
+Ubicación: lib/core/utils/[domain]_formatters/
 Ejemplos: date_formatters.dart, currency_formatters.dart, user_formatters.dart

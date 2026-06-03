@@ -5,6 +5,14 @@
 - Variables y métodos: camelCase
 - Archivos: snake_case.dart
 - Miembros privados: _prefijo
+- Identificadores en inglés; textos de UI en español (ver [`naming.md`](naming.md)).
+
+## Interfaces e implementaciones
+- Interface: nombre limpio, **sin** prefijo `I` (`AuthRepository`, no `IAuthRepository`).
+  Effective Dart desaconseja el estilo Hungarian; la intención se declara con
+  `abstract interface class`.
+- Implementación pública: sufijo `Impl` (`AuthRepositoryImpl`) en `infrastructure/`.
+- Archivos: `auth_repository.dart` (interface) / `auth_repository_impl.dart` (impl).
 
 ## Orden de imports
 1. Dart core (dart:async, dart:io...)
@@ -26,6 +34,8 @@
   ProfileHeaderSection → profile_header_section.dart
 
 ## Prohibido
+- Prefijo `I` en interfaces
 - Lógica de formateo dentro de widgets (fechas, moneda, números)
 - try-catch en UseCase o Presentation
 - Acceso directo a DataSource desde UI
+- `Either` / wrappers para errores (se lanzan `Failure`; ver [`architecture.md`](architecture.md))
