@@ -84,6 +84,19 @@ git push origin v1.1.0
 
 Cada release debe actualizar [`CHANGELOG.md`](CHANGELOG.md) bajo una nueva sección con el número de versión y fecha.
 
+### Sincronizar un mirror (misma historia)
+
+Si además del canónico mantenés un **mirror** del template (otro remote que recibió un `push` de esta misma historia — por ejemplo una copia personal), propagar es un **fast-forward**, no un cherry-pick:
+
+```bash
+git push origin main      # 1. subís la mejora al canónico
+git push <mirror> main    # 2. espejás (fast-forward, misma historia)
+```
+
+> Para que siga siendo fast-forward, **no commitees directo sobre el mirror**: tratalo como espejo de solo-recepción. Si commiteás aparte en ambos lados, las historias divergen y el push falla.
+>
+> Esto es distinto de un **proyecto hijo** (creado con *Use this template*): ese arranca con historia independiente y se actualiza con cherry-pick, como se ve abajo.
+
 ### Propagar mejoras a proyectos hijos
 
 Desde un proyecto ya creado con el template:
